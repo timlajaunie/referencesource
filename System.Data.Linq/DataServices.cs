@@ -170,11 +170,12 @@ namespace System.Data.Linq {
             if (type == null) {
                 throw Error.ArgumentNull("type");
             }
-            this.tracker.FastTrack(instance);
-
+                        
             if (type.HasAnyLoadMethod) {
                 SendOnLoaded(type, instance);
             }
+            
+            this.tracker.FastTrack(instance);
         }
 
         private static void SendOnLoaded(MetaType type, object item) {
